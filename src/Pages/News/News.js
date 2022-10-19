@@ -1,10 +1,31 @@
 import React from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { FaStar } from 'react-icons/fa';
 
 const News = () => {
+    const news = useLoaderData()
+    const { category_id, title, author, details, image_url, rating, total_view } = news;
     return (
-        <div>
-            <h2>This is News</h2>
-        </div>
+        <Card>
+            <Card.Img variant="top" src={image_url} />
+            <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <div className='d-flex justify-content-between'>
+                    <p>Author : {author?.name}</p>
+                    <p>Published date : {author?.published_date}</p>
+                    <div>
+                        <FaStar className='text-warning me-1'></FaStar>
+                        <span>{rating?.number}</span>
+                    </div>
+                </div>
+                <Card.Text>
+                    {details}
+                </Card.Text>
+                <Link to={`/category/${category_id}`}><Button variant="primary">All News in this Category</Button></Link>
+            </Card.Body>
+        </Card >
     );
 };
 
