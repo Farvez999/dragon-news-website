@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
     const { createUser } = useContext(AuthContext);
-
+    const [error, setError] = useState('')
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -24,7 +24,10 @@ const SignUp = () => {
                 console.log(user);
                 form.reset();
             })
-            .catch(error => console.error('error', error))
+            .catch(error => {
+                console.error('error', error);
+                setError(error.message)
+            })
     }
     return (
         <Form onSubmit={handleSubmit}>
@@ -50,8 +53,8 @@ const SignUp = () => {
             <Button variant="primary" type="submit">
                 Sign Up
             </Button>
-            <Form.Text className="text-muted">
-
+            <Form.Text className="text-danger">
+                {error}
             </Form.Text>
         </Form>
     );
