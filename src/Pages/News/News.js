@@ -6,7 +6,7 @@ import { FaStar } from 'react-icons/fa';
 
 const News = () => {
     const news = useLoaderData()
-    const { category_id, title, author, details, image_url, rating, total_view } = news;
+    const { category_id, title, author, details, image_url, rating } = news;
     return (
         <Card>
             <Card.Img variant="top" src={image_url} />

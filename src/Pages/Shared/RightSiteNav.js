@@ -3,10 +3,9 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaWhatsapp, FaInstagram, FaLinkedin } from "react-icons/fa";
 import ListGroup from 'react-bootstrap/ListGroup';
-import Carousel from 'react-bootstrap/Carousel';
 import BrandCarousel from './BrandCarousel';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import AuthProvider, { AuthContext } from '../../contexts/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const RightSiteNav = () => {
 
