@@ -3,8 +3,10 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
 
 const News = () => {
+    useTitle('News')
     const news = useLoaderData()
     const { category_id, title, author, details, image_url, rating } = news;
     return (
